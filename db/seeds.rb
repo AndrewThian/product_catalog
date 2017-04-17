@@ -41,7 +41,6 @@ SubSubCategory.create!([
   {name: "Oily", sub_category_id: 9},
   {name: "Coloured", sub_category_id: 9},
   {name: "Dry", sub_category_id: 10},
-  {name: "Oily", sub_category_id: 10},
   {name: "Mirrors", sub_category_id: 11},
   {name: "ManicurePedicure", sub_category_id: 11},
   {name: "HeatProtection", sub_category_id: 9},
@@ -79,6 +78,6 @@ Product.create!([
   {name: "Wildflower Collection", description: "The Wildflower Collection features a range of alluring false lash designs that are sure to turn heads from across the room. It's perfect for any eye size and shape, and handmade from 100% premium natural hair. ", price: 6.0, sub_sub_category_id: 3, thumb_img: "http://placehold.it/200x200"},
   {name: "Nutrient Cream 50ml\n", description: "Susanne Kaufmann Nutrient Cream contains only natural active ingredients. They increase the skin’s natural cell process to regenerate. Moisture depots are filled up to prevent or cure dry skin. It can even be used as a daily regeneration cream during the winter since this is the season that the skin gets dry and chapped. It even protects or cures against Couperose. ", price: 134.0, sub_sub_category_id: 14, thumb_img: "http://placehold.it/200x200"},
   {name: "Rose Hip Nourishing Oil", description: "Achieve brighter, evenly toned complexion with this antiseptic oil. It contains a lightweight texture and performs gently, even on sensitive skin. Soothe dry and peeling skin with its blend of botanicals and vitamins. ", price: 44.0, sub_sub_category_id: 16, thumb_img: "http://placehold.it/200x200"},
-  {name: "Compact Styler Gold Rush", description: "The compact, on-the-go brush is a great fit into your handbag. It works just as efficiently as the regular-sized Tangle Teezer, which detangles hair and removes knots without trouble. It also provides a therapeutic scalp massage while eliminating tangles.", price: 35.0, sub_sub_category_id: 30, thumb_img: "http://placehold.it/200x200"},
+  {name: "Compact Styler Gold Rush", description: "The compact, on-the-go brush is a great fit into your handbag. It works just as efficiently as the regular-sized Tangle Teezer, which detangles hair and removes knots without trouble. It also provides a therapeutic scalp massage while eliminating tangles.", price: 35.0, sub_sub_category_id: 29, thumb_img: "http://placehold.it/200x200"},
   {name: "GALifornia", description: "Everyone loves a GALifornia girl! Part sun, pure fun, this blush is a blend of warm pinks and shimmering gold. It features Benefit Cosmetics signature Galifornia Dreamin’ scent with notes of pink grapefruit and vanilla. A custom rounded brush allows for soft, diffused application.", price: 51.0, sub_sub_category_id: 12, thumb_img: "http://placehold.it/200x200"}
 ])

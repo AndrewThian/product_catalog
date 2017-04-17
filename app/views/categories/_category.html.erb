@@ -1,0 +1,14 @@
+<tr>
+	<td>
+		<%= category.id %>
+	</td>
+	<td>
+		<%= category.name %>
+	</td>
+	<td>
+		<%= link_to 'Edit', edit_category_path(category), id: "edit_#{category.id}" %>
+	</td>
+	<td>
+		<%= link_to 'Delete', category_path(category), method: :delete, id: "delete_cat_#{category.id}_from_index" %>
+	</td>
+</tr>
