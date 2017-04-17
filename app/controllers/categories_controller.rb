@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    @category.sub_categories.build
   end
 
   def create
@@ -31,6 +32,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    # show last edited sub category
+    @sub_category = SubCategory.order("updated_at DESC").limit(5)
   end
 
   def destroy
@@ -41,7 +44,7 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, sub_categories_attributes: [ :id, :name, :_destroy ])
   end
 
   def set_category

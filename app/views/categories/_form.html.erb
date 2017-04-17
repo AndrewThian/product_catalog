@@ -4,4 +4,16 @@
 
   <%= f.submit 'Save' %>
 
+  <h3>Sub categories</h3>
+  <%= f.fields_for :sub_categories do |sub_cat| %>
+    <%= sub_cat.label :name %></br>
+    <%= sub_cat.text_field :name %></br>
+    <% unless new_category?(new_category_path) %>
+      <%= sub_cat.check_box :_destroy %>
+      <%= sub_cat.label :_destroy, 'remove' %></br>
+    <% end %>
+  <% end %>
+
+  <%= link_to 'Create new sub category', new_sub_category_path %>
+
 <% end %>
