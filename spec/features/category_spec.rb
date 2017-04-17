@@ -23,6 +23,15 @@ describe 'navigate' do
     end
   end
 
+  describe 'new' do
+    it 'has a link from the category index' do
+      visit categories_path
+
+      click_link('new_cat_from_cat_index')
+      expect(page.status_code).to eq(200)
+    end
+  end
+
   describe 'delete' do
     it 'can be deleted' do
       @category = FactoryGirl.create(:category)
