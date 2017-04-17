@@ -12,6 +12,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "administrate", "~> 0.2.2"
 gem 'bourbon'
 
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
