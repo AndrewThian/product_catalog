@@ -3,10 +3,7 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
   describe "Creation" do
     before do
-      @category = Category.create(name: 'Test category')
-      @sub_category = SubCategory.create(name: 'Test sub cat', category_id: @category.id)
-      @sub_sub_category = SubSubCategory.create(name: 'Test sub sub cat', sub_category_id: @sub_category.id)
-      @product = Product.create(name: 'Test prod', sub_sub_category_id: @sub_sub_category.id)
+      @product = FactoryGirl.create(:product)
     end
     it "can be created" do
       expect(@product).to be_valid
@@ -17,8 +14,19 @@ RSpec.describe Product, type: :model do
       expect(@product).to_not be_valid
     end
 
+    it "cannot be created without a price" do
+      @product.price = nil
+      expect(@product).to_not be_valid
+    end
+
+    it "cannot be created with a price less than 0" do
+      @product.price = -5
+      expect(@product).to_not be_valid
+    end
+
     it "cannot create more than one similar category" do
-      @product2 = Product.create(name: 'Test prod', sub_sub_category_id: @sub_sub_category.id)
+      @product2 = FactoryGirl.create(:product)
+      @product2.name = @product.name
       expect(@product2).to_not be_valid
     end
   end

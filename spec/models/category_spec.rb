@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Category, type: :model do
   describe "Creation" do
     before do
-      @category = Category.create(name: 'Test category')
+      @category = FactoryGirl.create(:category)
     end
     it "can be created" do
       expect(@category).to be_valid
@@ -15,7 +15,8 @@ RSpec.describe Category, type: :model do
     end
 
     it "cannot create similar name" do
-      @category2 = Category.create(name: 'Test category')
+      @category2 = FactoryGirl.create(:category)
+      @category2.name = @category.name
       expect(@category2).to_not be_valid
     end
   end

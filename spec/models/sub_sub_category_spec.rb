@@ -3,9 +3,7 @@ require 'rails_helper'
 RSpec.describe SubSubCategory, type: :model do
   describe "Creation" do
     before do
-      @category = Category.create(name: 'Test category')
-      @sub_category = SubCategory.create(name: 'Test sub cat', category_id: @category.id)
-      @sub_sub_category = SubSubCategory.create(name: 'Test sub sub cat', sub_category_id: @sub_category.id)
+      @sub_sub_category = FactoryGirl.create(:sub_sub_category)
     end
     it "can be created" do
       expect(@sub_sub_category).to be_valid
@@ -16,8 +14,9 @@ RSpec.describe SubSubCategory, type: :model do
       expect(@sub_sub_category).to_not be_valid
     end
 
-    it "cannot create more than one similar category" do
-      @sub_sub_category2 = SubSubCategory.create(name: 'Test sub sub cat', sub_category_id: @sub_category.id)
+    it "cannot create more than one similar sub sub category" do
+      @sub_sub_category2 = FactoryGirl.create(:sub_sub_category)
+      @sub_sub_category2.name = @sub_sub_category.name
       expect(@sub_sub_category2).to_not be_valid
     end
   end
