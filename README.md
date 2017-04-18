@@ -1,6 +1,7 @@
 ## Functionality
 
 * CRUD action for categories
+* CRUD action for sub categories
 * Static main page for displaying products
 
 ## TODO
