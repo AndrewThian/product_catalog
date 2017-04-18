@@ -23,6 +23,16 @@ describe 'navigate' do
     end
   end
 
+  describe 'delete' do
+    it 'can be deleted' do
+      @sub_category = FactoryGirl.create(:sub_category)
+      visit sub_categories_path
+
+      click_link("delete_sub_cat_#{@sub_category.id}_from_index")
+      expect(page.status_code).to eq(200)
+    end
+  end
+
   describe 'create' do
     before do
       visit new_sub_category_path
@@ -36,7 +46,21 @@ describe 'navigate' do
       expect(page).to have_content(/New/)
     end
 
-    it 'can be created from new form page' do
+    # do testing for collection_select form in create action
+  end
+
+  describe 'edit' do
+    before do
+      @sub_category = FactoryGirl.create(:sub_category)
     end
+
+    it 'can be reached by clicking on edit on index page' do
+      visit sub_categories_path
+
+      click_link("edit_sub_cat_#{@sub_category.id}")
+      expect(page.status_code).to eq(200)
+    end
+
+    # do testing for collection_select form in edit action
   end
 end
