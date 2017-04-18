@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <%= form_for @sub_sub_category, class: "form-horizontal" do |f| %>
+
+      <div class="form-group">
+        <%= f.label :subcategory, class: "col-sm-2 control-label" %>
+        <%= f.grouped_collection_select(:sub_category_id, Category.all, :sub_categories, :name, :id, :name, { :multiple => false }, {class: "form-control"}) %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :name, class: "col-sm-2 control-label" %>
+        <%= f.text_area :name, class: "form-control" %>
+      </div>
+
+      <% unless create_page?(new_sub_category_path) %>
+      <h3>Sub sub categories</h3>
+      <%= link_to 'Create new product', new_product_path, class: 'btn btn-primary btn-block' %>
+      <%= f.fields_for :products do |product| %>
+        <%= product.label :name %></br>
+        <%= product.text_field :name %></br>
+          <%= product.check_box :_destroy %>
+          <%= product.label :_destroy, 'remove' %></br>
+        <% end %>
+      <% end %>
+
+      <%= f.submit 'Save', class: 'btn btn-success btn-block' %>
+
+    <% end %>
+  </div>
+</div>
