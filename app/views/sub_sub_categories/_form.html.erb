@@ -1,9 +1,15 @@
 <div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
+  <div class="col-sm-10 col-sm-offset-1">
     <%= form_for @sub_sub_category, class: "form-horizontal" do |f| %>
 
+      <% if @sub_sub_category.errors.any? %>
+          <% @sub_sub_category.errors.full_messages.each do |error| %>
+          <%= js add_gritter(error, title: "Sephora App Notification", sticky: false) %>
+        <% end %>
+      <% end %>
+
       <div class="form-group">
-        <%= f.label :subcategory, class: "col-sm-2 control-label" %>
+        <%= f.label :sub_category, class: "col-sm-4 control-label" %>
         <%= f.grouped_collection_select(:sub_category_id, Category.all, :sub_categories, :name, :id, :name, { :multiple => false }, {class: "form-control"}) %>
       </div>
 
@@ -14,12 +20,24 @@
 
       <% unless create_page?(new_sub_category_path) %>
       <h3>Products</h3>
-      <%= link_to 'Create new product', new_product_path, class: 'btn btn-primary btn-block' %>
-      <%= f.fields_for :products do |product| %>
-        <%= product.label :name %></br>
-        <%= product.text_field :name %></br>
-          <%= product.check_box :_destroy %>
-          <%= product.label :_destroy, 'remove' %></br>
+        <%= link_to 'Create new product', new_product_path, class: 'btn btn-primary btn-block' %></br>
+        <%= f.fields_for :products do |product| %>
+        <div class="form-group">
+          <%= product.label :product_name, class: "col-sm-2 control-label" %>
+          <div class="col-sm-10">
+            <%= product.text_field :name, class: "form-control" %>
+          </div>
+        </div></br>
+        <div class="form-group">
+          <%= product.label :product_description, class: "col-sm-2 control-label" %>
+          <div class="col-sm-10">
+            <%= product.text_field :description, class: "form-control" %>
+          </div>
+        </div></br>
+        <div class="form-group">
+          <%= product.label :_destroy, 'Remove', class: "pull-right" %>
+          <%= product.check_box :_destroy, class: "pull-right" %></br>
+        </div>
         <% end %>
       <% end %>
 

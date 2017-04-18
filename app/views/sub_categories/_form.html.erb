@@ -2,6 +2,11 @@
   <div class="col-sm-8 col-sm-offset-2">
     <%= form_for @sub_category, class: "form-horizontal" do |f| %>
 
+      <% if @sub_category.errors.any? %>
+          <% @sub_category.errors.full_messages.each do |error| %>
+          <%= js add_gritter(error, title: "Sephora App Notification", sticky: false) %>
+        <% end %>
+      <% end %>
 
       <div class="form-group">
         <%= f.label :category, class: "col-sm-2 control-label" %>
@@ -14,17 +19,21 @@
       </div>
 
       <% unless create_page?(new_sub_category_path) %>
-      <h3>Sub sub categories</h3>
-      <%= link_to 'Create new sub sub category', new_sub_sub_category_path, class: 'btn btn-primary btn-block' %>
-      <%= f.fields_for :sub_sub_categories do |sub_sub_cat| %>
-        <%= sub_sub_cat.label :name %></br>
-        <%= sub_sub_cat.text_field :name %></br>
-          <%= sub_sub_cat.check_box :_destroy %>
-          <%= sub_sub_cat.label :_destroy, 'remove' %></br>
+        <h3 class="text-center">Sub sub categories</h3>
+        <%= link_to 'Create new sub sub category', new_sub_sub_category_path, class: 'btn btn-xs btn-primary btn-block' %></br>
+        <%= f.fields_for :sub_sub_categories do |sub_sub_cat| %>
+        <div class="form-group">
+          <%= sub_sub_cat.label :sub_name, class: "col-sm-4 control-label" %>
+          <%= sub_sub_cat.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= sub_sub_cat.label :_destroy, 'Remove', class: "pull-right" %>
+          <%= sub_sub_cat.check_box :_destroy, class: "pull-right" %></br>
+        </div>
         <% end %>
       <% end %>
 
-      <%= f.submit 'Save', class: 'btn btn-success btn-block' %>
+      <%= f.submit 'Save', class: 'btn btn-lg btn-success btn-block' %>
 
     <% end %>
   </div>

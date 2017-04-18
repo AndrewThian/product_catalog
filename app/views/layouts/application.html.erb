@@ -9,13 +9,15 @@
 <body>
 
   <div class="container">
-    	<div class="row">
-    		<div class="col-md-12">
-          <%= render 'partials/nav' %>
-    			<%= yield %>
-    		</div>
-    	</div>
-    </div>
+  	<div class="row">
+  		<div class="col-md-12">
+        <%= render 'partials/nav' %>
+  			<%= yield %>
+  		</div>
+  	</div>
+  </div>
+
+  <%= js add_gritter(flash[:notice], title: "Sephora App Notification", sticky: false) %>
 
 </body>
 </html>
