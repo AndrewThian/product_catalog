@@ -6,4 +6,8 @@ module ApplicationHelper
   def active?(path)
     return "active" if current_page?(path)
   end
+
+  def home?(path)
+    return true if current_page?(path)
+  end
 end
