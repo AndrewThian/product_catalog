@@ -2,13 +2,14 @@
 
 * CRUD action for categories
 * CRUD action for sub categories
+* CRUD action for sub sub categories
 * Static main page for displaying products
 
 ## TODO
 
 * refactor capybara test to test for nested forms
 * x create sub category controllers / views
-* create sub sub category controllers / views
+* x create sub sub category controllers / views
 * create product controllers / views
 * x add bootstrap styling to forms and tables
 
