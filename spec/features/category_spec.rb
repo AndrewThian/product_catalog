@@ -5,6 +5,7 @@ describe 'navigate' do
     before do
       visit categories_path
     end
+
     it 'can be reached successfully' do
       expect(page.status_code).to eq(200)
     end

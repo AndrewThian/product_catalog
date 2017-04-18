@@ -4,7 +4,7 @@
 
   <%= f.submit 'Save' %>
 
-  <% unless new_category?(new_category_path) %>
+  <% unless create_page?(new_category_path) %>
   <h3>Sub categories</h3>
   <%= f.fields_for :sub_categories do |sub_cat| %>
     <%= sub_cat.label :name %></br>

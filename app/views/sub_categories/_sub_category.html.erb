@@ -1,0 +1,17 @@
+<tr>
+	<td>
+		<%= sub_category.id %>
+	</td>
+  <td>
+		<%= sub_category.parent_name %>
+	</td>
+	<td>
+		<%= sub_category.name %>
+	</td>
+  <td>
+		<%= link_to 'Edit', edit_sub_category_path(sub_category), id: "edit_sub_cat_#{sub_category.id}" %>
+	</td>
+	<td>
+		<%= link_to 'Delete', sub_category_path(sub_category), method: :delete, id: "delete_sub_cat_#{sub_category.id}_from_index" %>
+	</td>
+</tr>
