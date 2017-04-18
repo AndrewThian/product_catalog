@@ -20,27 +20,16 @@
 
       <% unless create_page?(new_sub_category_path) %>
       <h3>Products</h3>
-        <%= link_to 'Create new product', new_product_path, class: 'btn btn-primary btn-block' %></br>
-        <%= f.fields_for :products do |product| %>
-        <div class="form-group">
-          <%= product.label :product_name, class: "col-sm-2 control-label" %>
-          <div class="col-sm-10">
-            <%= product.text_field :name, class: "form-control" %>
+        <div class="container product-container">
+          <div class="row product-container-row">
+            <%= f.fields_for :products do |product| %>
+              <%= render 'product_card', product: product %>
+            <% end %>
           </div>
         </div></br>
-        <div class="form-group">
-          <%= product.label :product_description, class: "col-sm-2 control-label" %>
-          <div class="col-sm-10">
-            <%= product.text_field :description, class: "form-control" %>
-          </div>
-        </div></br>
-        <div class="form-group">
-          <%= product.label :_destroy, 'Remove', class: "pull-right" %>
-          <%= product.check_box :_destroy, class: "pull-right" %></br>
-        </div>
-        <% end %>
       <% end %>
 
+      <%= link_to 'Create new product', new_product_path, class: 'btn btn-xs btn-primary btn-block' %>
       <%= f.submit 'Save', class: 'btn btn-success btn-block' %>
 
     <% end %>

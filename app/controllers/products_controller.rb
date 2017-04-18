@@ -24,14 +24,14 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to @product, notice: 'Product successfully updated!'
+      redirect_to products_path, notice: 'Product successfully updated!'
     else
       render :edit
     end
   end
 
   def show
-    @product = Product.order("update_at DESC").limit(5)
+    @product = Product.order("updated_at DESC").limit(5)
   end
 
   def destroy

@@ -43,7 +43,7 @@ class SubSubCategoriesController < ApplicationController
   private
 
   def sub_sub_category_params
-    params.require(:sub_sub_category).permit(:name, :sub_category_id, sub_sub_categories_attributes: [ :id, :name ])
+    params.require(:sub_sub_category).permit(:name, :sub_category_id, products_attributes: [ :id, :name ])
   end
 
   def set_sub_sub_category
