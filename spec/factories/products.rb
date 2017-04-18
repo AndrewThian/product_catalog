@@ -19,7 +19,7 @@ FactoryGirl.define do
     name { generate :prod_name }
     description "Test description!!!"
     price { generate :price }
-    thumb_img "http://placehold.it/200x200"
+    thumb_img nil
     sub_sub_category
   end
 end

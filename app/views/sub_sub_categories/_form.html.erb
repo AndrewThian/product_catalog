@@ -13,7 +13,7 @@
       </div>
 
       <% unless create_page?(new_sub_category_path) %>
-      <h3>Sub sub categories</h3>
+      <h3>Products</h3>
       <%= link_to 'Create new product', new_product_path, class: 'btn btn-primary btn-block' %>
       <%= f.fields_for :products do |product| %>
         <%= product.label :name %></br>

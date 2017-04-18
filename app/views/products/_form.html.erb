@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <%= form_for @product, class: "form-horizontal" do |f| %>
+
+      <div class="form-group">
+        <%= f.label :sub_sub_category, class: "col-sm-4 control-label" %>
+        <%= f.grouped_collection_select(:sub_sub_category_id, SubCategory.all, :sub_sub_categories, :name, :id, :name, { :multiple => false }, {class: "form-control"}) %>
+      </div>
+
+      <%= link_to 'Create new sub sub category', new_sub_sub_category_path, class: 'btn btn-primary btn-block' %></br>
+
+      <div class="form-group">
+        <%= f.label :name, class: "col-sm-2 control-label" %>
+        <%= f.text_area :name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description, class: "col-sm-2 control-label" %>
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :price, class: "col-sm-2 control-label" %>
+        <%= f.number_field :price, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :thumb_img, class: "col-sm-2 control-label" %>
+        <%= f.text_area :thumb_img, class: "form-control" %>
+      </div>
+
+      <%= f.submit 'Save', class: 'btn btn-success btn-block' %>
+
+    <% end %>
+  </div>
+</div>

@@ -24,6 +24,11 @@ RSpec.describe Product, type: :model do
       expect(@product).to_not be_valid
     end
 
+    it "to have default placeholder url image" do
+      @product2 = FactoryGirl.create(:second_product)
+      expect(@product).to have_attributes(:thumb_img => "http://placehold.it/200x200")
+    end
+
     it "cannot create more than one similar category" do
       @product2 = FactoryGirl.create(:product)
       @product2.name = @product.name
