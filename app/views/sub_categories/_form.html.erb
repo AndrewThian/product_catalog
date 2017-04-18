@@ -1,21 +1,30 @@
-<%= form_for @sub_category do |f| %>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <%= form_for @sub_category, class: "form-horizontal" do |f| %>
 
-  <%= f.label :category %>
-  <%= collection_select( :sub_category, :category_id, Category.all, :id, :name, {}, { :multiple => false }) %>
+      <div class="form-group">
+        <%= f.label :category, class: "col-sm-2 control-label" %>
+        <%= collection_select( :sub_category, :category_id, Category.all, :id, :name, { :multiple => false }, {class: "form-control"}) %>
+      </div>
 
-  <%= f.text_area :name %>
+      <div class="form-group">
+        <%= f.label :name, class: "col-sm-2 control-label" %>
+        <%= f.text_area :name, class: "form-control" %>
+      </div>
 
-  <%= f.submit 'Save' %>
+      <% unless create_page?(new_sub_category_path) %>
+      <h3>Sub sub categories</h3>
+      <%= link_to 'Create new sub sub category', new_sub_sub_category_path, class: 'btn btn-primary btn-block' %>
+      <%= f.fields_for :sub_sub_categories do |sub_sub_cat| %>
+        <%= sub_sub_cat.label :name %></br>
+        <%= sub_sub_cat.text_field :name %></br>
+          <%= sub_sub_cat.check_box :_destroy %>
+          <%= sub_sub_cat.label :_destroy, 'remove' %></br>
+        <% end %>
+      <% end %>
 
-  <% unless create_page?(new_sub_category_path) %>
-  <h3>Sub sub categories</h3>
-  <%= f.fields_for :sub_sub_categories do |sub_sub_cat| %>
-    <%= sub_sub_cat.label :name %></br>
-    <%= sub_sub_cat.text_field :name %></br>
-      <%= sub_sub_cat.check_box :_destroy %>
-      <%= sub_sub_cat.label :_destroy, 'remove' %></br>
+      <%= f.submit 'Save', class: 'btn btn-success btn-block' %>
+
     <% end %>
-    <%= link_to 'Create new sub sub category', new_sub_sub_category_path %>
-  <% end %>
-
-<% end %>
+  </div>
+</div>
