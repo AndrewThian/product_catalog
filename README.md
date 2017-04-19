@@ -22,3 +22,4 @@
 
 * missed out nested forms tests in sub_category create action
 * missed out collection_select tests in sub_category edit action
+* missed out testing for filter system @ homepage/static controller action
