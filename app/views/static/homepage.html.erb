@@ -1,21 +1,17 @@
-<h2>Home</h2>
-
-<div class="cat">
-  <% Category.all.each do |category| %>
-    <%= link_to category.name, root_path(category: category.name) %>
-  <% end %>
+<div class="header text-center">
+	<h1>Sephora</h1>
+	<p>Buy yourself some s**t, you deserve it.</p>
 </div>
 
-<div class="subcat">
-  <% SubCategory.all.each do |sub_category| %>
-    <%= link_to sub_category.name, root_path(sub_category: sub_category.name) %>
-  <% end %>
-</div>
-
-<div class="subsubcat">
-  <% SubSubCategory.all.each do |sub_sub_category| %>
-    <%= link_to sub_sub_category.name, root_path(sub_sub_category: sub_sub_category.name) %>
-  <% end %>
-</div>
-
-<%= @products.inspect %>
+<% @products.each do |product| %>
+  <div class="col-md-4 text-center">
+		<div class="product-card">
+			<%= image_tag product.thumb_img, height: '200', width: '200' %>
+			<div class="product-details">
+				<span class="name"><%= product.name %></span>
+				<span class="desc"><%= product.description %></span>
+				<span class="price"><%= number_to_currency product.price %></span>
+			</div>
+		</div>
+	</div>
+<% end %>
