@@ -9,8 +9,8 @@
 			<%= image_tag product.thumb_img, height: '200', width: '200' %>
 			<div class="product-details">
 				<span class="name"><%= product.name %></span>
-				<span class="desc"><%= product.description %></span>
 				<span class="price"><%= number_to_currency product.price %></span>
+        <%= link_to 'Show more', product_path(product.id) %>
 			</div>
 		</div>
 	</div>
