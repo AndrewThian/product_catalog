@@ -14,8 +14,8 @@
 * x create sub sub category controllers / views
 * x create product controllers / views
 * x add cards to cat, sub cat, sub sub cat
-* add categories to nav bar
-* finish up main page params[:id] filtering with hash generators
+* add categories to nav bar with styling and dropdown menus
+* x finish up main page params[:id] filtering with hash generators
 * x add bootstrap styling to forms and tables
 
 ## TESTS
