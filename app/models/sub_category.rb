@@ -9,7 +9,8 @@ class SubCategory < ActiveRecord::Base
   validates :name, presence: true
   validates :name, uniqueness: true
 
-  def cat_name
-    return category.name
+  def cat_data
+    return { name: category.name,
+               id: category.id }
   end
 end

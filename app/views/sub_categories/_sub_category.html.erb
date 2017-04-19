@@ -3,7 +3,7 @@
 		<%= sub_category.id %>
 	</td>
   <td>
-		<%= sub_category.cat_name %>
+		<%= link_to sub_category.cat_data[:name], edit_category_path(sub_category.cat_data[:id]) %>
 	</td>
 	<td>
 		<strong><%= sub_category.name %></strong>

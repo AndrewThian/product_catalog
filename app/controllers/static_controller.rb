@@ -17,5 +17,6 @@ class StaticController < ApplicationController
       @sub_sub_category_ids = SubSubCategory.where(sub_category_id: @sub_category).pluck(:id) if @sub_category
       @products = Product.where(sub_sub_category: @sub_sub_category_ids) if @sub_sub_category_ids
     end
+    
   end
 end
