@@ -23,26 +23,5 @@ class StaticController < ApplicationController
       @sub_sub_category = SubSubCategory.find_by(name: params[:sub_sub_category])
       return @products = Product.where(sub_sub_category: @sub_sub_category) if @sub_sub_category
     end
-
-    @navbar_data = set_nested_categories
-  end
-
-  private
-
-  def set_nested_categories
-    hash = Hash.new
-    # checking if category has products!
-    categories = Category.includes(sub_categories: { sub_sub_categories: :products }).where.not( products: { id: nil })
-
-    categories.each do |category|
-      sub_cats = Array.new
-      category.sub_categories.each do |sub_category|
-        sub_cat = Hash.new
-        sub_cat[sub_category.name] = sub_category.sub_sub_categories.pluck(:name)
-        sub_cats.push(sub_cat)
-      end
-      hash[category.name] = sub_cats
-    end
-    return hash
   end
 end

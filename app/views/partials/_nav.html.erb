@@ -1,10 +1,36 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Home</a>
-    </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to 'Home', root_path %></li>
+      </ul>
+
+
+      <ul class="nav navbar-nav">
+				<% if data.length > 0 %>
+					<% data.each do |cat_name, sub_categories| %>
+						<li class="dropdown">
+							<%= link_to cat_name, "/#{cat_name.downcase}", class: "dropdown-toggle", 'role': 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' %>
+							<ul class="dropdown-menu">
+								<% sub_categories.each do |sub_category| %>
+									<% sub_category.each do |name, sub_sub_categories| %>
+										<li class="sub-category">
+											<%= sanitize link_to name, "/#{cat_name.downcase}/#{name.downcase}" %>
+										</li>
+										<% sub_sub_categories.each do |sub_sub_category| %>
+										<li class="sub-sub-category">
+											<%= sanitize link_to sub_sub_category, "/#{cat_name.downcase}/#{name.downcase}/#{sub_sub_category.downcase}" %>
+										</li>
+										<% end %>
+									<% end %>
+								<% end %>
+							</ul>
+						</li>
+					<% end %>
+				<% end %>
+			</ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Admin', categories_path %></li>
@@ -13,6 +39,7 @@
     </div>
   </div>
 </nav>
+
 
 <% unless home?(root_path) %>
   <%= render 'partials/admin_header' %>
