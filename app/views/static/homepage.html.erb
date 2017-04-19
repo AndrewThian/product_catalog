@@ -1,1 +1,15 @@
 <h2>Home</h2>
+
+<div class="cat">
+  <% Category.all.each do |category| %>
+    <%= link_to category.name, root_path(category: category.name) %>
+  <% end %>
+</div>
+
+<div class="subcat">
+  <% SubCategory.all.each do |sub_category| %>
+    <%= link_to sub_category.name, root_path(sub_category: sub_category.name) %>
+  <% end %>
+</div>
+
+<%= @products.inspect %>

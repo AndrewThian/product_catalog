@@ -9,7 +9,10 @@ class SubSubCategory < ActiveRecord::Base
   validates :name, presence: true
   validates :name, uniqueness: true
 
-  def sub_cat_parent_name
+  def sub_cat_name
     return sub_category.name
+  end
+  def cat_name
+    return sub_category.category.name
   end
 end

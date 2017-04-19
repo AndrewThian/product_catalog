@@ -2,7 +2,7 @@ class SubCategoriesController < ApplicationController
   before_action :set_sub_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @sub_categories = SubCategory.all
+    @sub_categories = SubCategory.all.order("name DESC")
   end
 
   def new

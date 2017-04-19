@@ -2,8 +2,14 @@
 	<td>
 		<%= product.id %>
 	</td>
+	<td>
+		<%= link_to product.cat_data[:name], edit_category_path(product.cat_data[:id]) %>
+	</td>
+	<td>
+		<%= link_to product.sub_cat_data[:name], edit_sub_category_path(product.sub_cat_data[:id]) %>
+	</td>
   <td>
-		<%= product.sub_sub_cat_name %>
+		<%= link_to product.sub_sub_cat_data[:name], edit_sub_sub_category_path(product.sub_sub_cat_data[:id]) %>
 	</td>
 	<td>
 		<strong><%= product.name %></strong>

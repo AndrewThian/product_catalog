@@ -9,7 +9,7 @@ class SubCategory < ActiveRecord::Base
   validates :name, presence: true
   validates :name, uniqueness: true
 
-  def cat_parent_name
+  def cat_name
     return category.name
   end
 end
