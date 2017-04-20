@@ -8,6 +8,12 @@
 * simple search for searching through products
 * Static main page for displaying products
 
+## App architecture
+
+* `category` has_many `sub_categories`
+* `sub_category` has_many `sub_sub_categories`
+* `sub_sub_category` has_many `products`
+
 ## TODO
 
 * refactor capybara test to test for nested forms
