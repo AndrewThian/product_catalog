@@ -28,6 +28,14 @@ It's deployed [here](https://fierce-castle-79402.herokuapp.com/categories). You 
 
 ## TESTS
 
+To run the tests:
+
+1. `bundle`
+2. `cd main folder` -> run `rspec`
+3. profit ?????????
+
+**please note the deprecation warning is coming from the gritter notifications**
+
 * missed out nested forms tests in sub_category create action
 * missed out collection_select tests in sub_category edit action
 * missed out testing for filter system @ homepage/static controller action
