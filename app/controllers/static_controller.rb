@@ -6,10 +6,12 @@ class StaticController < ApplicationController
       @products = Product.search(params[:search]).order("created_at DESC")
       return @products
     end
+
     if params[:category].blank?
       @products = Product.all
       return @products
     end
+    
     if params[:category] && params[:sub_category] && params[:sub_sub_category]
       @sub_sub_category = SubSubCategory.find_by(name: params[:sub_sub_category])
       @products = Product.where(sub_sub_category: @sub_sub_category) if @sub_sub_category
