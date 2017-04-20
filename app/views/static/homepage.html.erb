@@ -1,3 +1,28 @@
+<!-- TODO REFACTOR THIS! -->
+<% if params[:category] %>
+	<span class="results"><%= pluralize(@products.count, "product") %> found</span>
+	<span class="hierarchy-links">
+		<% if params[:category] %>
+			<%= link_to params[:category], root_path(category: params[:category]), class:"hierarchy-link" %>
+		<% end %>
+		<% if params[:category] && params[:sub_category] %>
+			<span>&nbsp;>&nbsp;</span>
+			<%= link_to params[:sub_category], root_path({
+                              category: params[:category],
+                              sub_category: params[:sub_category]
+                            }), class:"hierarchy-link" %>
+		<% end %>
+		<% if params[:category] && params[:sub_category] && params[:sub_sub_category] %>
+			<span>&nbsp;>&nbsp;</span>
+			<%= link_to params[:sub_sub_category], root_path({
+                              category: params[:category],
+                              sub_category: params[:sub_category],
+                              sub_sub_category: params[:sub_sub_category]
+                            }), class:"hierarchy-link" %>
+		<% end %>
+	</span>
+<% end %>
+
 <% @products.each do |product| %>
   <div class="col-md-4 text-center">
 		<div class="product-card">

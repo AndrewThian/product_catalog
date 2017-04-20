@@ -12,16 +12,23 @@
 				<% if data.length > 0 %>
 					<% data.each do |cat_name, sub_categories| %>
 						<li class="dropdown">
-							<%= link_to cat_name, root_path(category: cat_name), class: "dropdown-toggle", 'role': 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' %>
+							<%= link_to cat_name, root_path(category: cat_name), class: "dropdown-toggle", 'role': 'button',
+                                                                                              'aria-haspopup': 'true',
+                                                                                              'aria-expanded': 'false' %>
 							<ul class="dropdown-menu">
 								<% sub_categories.each do |sub_category| %>
-									<% sub_category.each do |name, sub_sub_categories| %>
+									<% sub_category.each do |sub_cat_name, sub_sub_categories| %>
 										<li class="sub-category">
-											<%= sanitize link_to name, root_path(sub_category: name) %>
+											<%= sanitize link_to sub_cat_name, root_path({
+                                                          sub_category: sub_cat_name,
+                                                          category: cat_name }) %>
 										</li>
 										<% sub_sub_categories.each do |sub_sub_category| %>
 										<li class="sub-sub-category">
-											<%= sanitize link_to sub_sub_category, root_path(sub_sub_category: sub_sub_category) %>
+											<%= sanitize link_to sub_sub_category, root_path({
+                                                              sub_sub_category: sub_sub_category,
+                                                              sub_category: sub_cat_name,
+                                                              category: cat_name }) %>
 										</li>
 										<% end %>
 									<% end %>
