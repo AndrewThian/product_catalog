@@ -8,14 +8,32 @@
 </head>
 <body>
 
+  <%= render 'partials/nav', data: @navbar_data %>
+
   <div class="container">
   	<div class="row">
   		<div class="col-md-12">
-        <%= render 'partials/nav', data: @navbar_data %>
+
+        <%= render 'partials/header' %>
+
+        <!-- TODO: REFACTOR THIS!!!! -->
+        <% if params[:id] %>
+          <% if !current_page?(product_path(params[:id])) %>
+            <%= render 'partials/admin_header' %>
+          <% end %>
+        <% else %>
+          <% unless home?(root_path) %>
+            <%= render 'partials/admin_header' %>
+          <% end %>
+        <% end %>
+
   			<%= yield %>
+
   		</div>
   	</div>
   </div>
+
+  <%= render 'partials/footer' %>
 
   <%= js add_gritter(flash[:notice], title: "Sephora App Notification", sticky: false) %>
 

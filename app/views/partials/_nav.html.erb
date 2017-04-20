@@ -1,13 +1,13 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-static-top navbar-default">
   <div class="container-fluid">
+
+    <div class="navbar-header">
+			<%= link_to 'Home', root_path, class: "navbar-brand" %>
+		</div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-      <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to 'Home', root_path %></li>
-      </ul>
-
-
+      <!-- TODO REFACTOR THIS -->
       <ul class="nav navbar-nav">
 				<% if data.length > 0 %>
 					<% data.each do |cat_name, sub_categories| %>
@@ -32,6 +32,12 @@
 				<% end %>
 			</ul>
 
+      <form class="navbar-form navbar-right search-form" role="search">
+				<input type="text" class="form-control" placeholder="Search" />
+        <button class="btn btn-xs btn-default search-btn" type="submit" name="button">search</button>
+        <div class="adv-search-btn"><small><%= link_to 'Advance search', root_path %></small></div>
+			</form>
+
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Admin', categories_path %></li>
       </ul>
@@ -39,8 +45,3 @@
     </div>
   </div>
 </nav>
-
-
-<% unless home?(root_path) %>
-  <%= render 'partials/admin_header' %>
-<% end %>

@@ -16,5 +16,4 @@
 // = require jquery_ujs
 // = require turbolinks
 // = require_tree .
-
-// Starrr plugin (https://github.com/dobtco/starrr)
+// = require products.js

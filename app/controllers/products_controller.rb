@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.order("updated_at DESC").limit(5)
+    @products_updated = Product.order("updated_at DESC").limit(5)
   end
 
   def destroy
