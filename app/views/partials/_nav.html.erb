@@ -39,11 +39,11 @@
 				<% end %>
 			</ul>
 
-      <form class="navbar-form navbar-right search-form" role="search">
-				<input type="text" class="form-control" placeholder="Search" />
-        <button class="btn btn-xs btn-default search-btn" type="submit" name="button">search</button>
+      <%= form_tag(root_path, :method => "get", class: "navbar-form navbar-right search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Posts", class: "form-control" %>
+        <%= submit_tag "Search", class: "btn btn-xs btn-default search-btn" %>
         <div class="adv-search-btn"><small><%= link_to 'Advance search', root_path %></small></div>
-			</form>
+      <% end %>
 
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Admin', categories_path %></li>

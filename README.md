@@ -5,12 +5,20 @@
 * CRUD action for sub sub categories
 * CRUD action for products
 * products filtered via category
+* simple search for searching through products
 * Static main page for displaying products
 
 ## TODO
 
 * refactor capybara test to test for nested forms
-* refactor frontfacing navbar loops to be more optimized
+* refactor front-facing navbar loops to be more optimized
+* refactor staic homepage controller..
+* refactor simple search to scrub lowercase and uppercase data..
+* add complex search form with search model
+
+## DONE
+
+* x add simple search
 * x create sub category controllers / views
 * x create sub sub category controllers / views
 * x create product controllers / views

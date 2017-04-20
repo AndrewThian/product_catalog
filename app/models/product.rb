@@ -19,4 +19,10 @@ class Product < ActiveRecord::Base
     return { name: sub_sub_category.sub_category.category.name,
                id: sub_sub_category.sub_category.category.id }
   end
+
+  def self.search(search)
+    where("name ILIKE ?", "%#{search}%")
+    where("description ILIKE ?", "%#{search}%")
+  end
+
 end
