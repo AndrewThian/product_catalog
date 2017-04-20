@@ -1,3 +1,7 @@
+## Deployment
+
+It's deployed [here](https://fierce-castle-79402.herokuapp.com/categories). You have access to the front-facing site as well as the admin portion via the admin link on the navbar. Advance search will bring you back to the home page as I didn't finish that feature. Will do so when I have more time tomorrow! :)
+
 ## Functionality
 
 * CRUD action for categories
