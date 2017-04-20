@@ -21,10 +21,10 @@
 * missed out nested forms tests in sub_category create action
 * missed out collection_select tests in sub_category edit action
 * missed out testing for filter system @ homepage/static controller action
-* TESTS CRUD action for categories
-* TESTS CRUD action for sub categories
-* TESTS CRUD action for sub sub categories
-* TESTS CRUD action for products
+* TESTS [model & view] categories
+* TESTS [model & view] sub categories
+* TESTS [model & view] sub sub categories
+* TESTS [model & view] products
 
 ## Built-with
 
