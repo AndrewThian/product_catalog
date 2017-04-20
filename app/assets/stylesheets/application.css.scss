@@ -1,3 +1,10 @@
+/*
+*= require ./categories.css
+*= require ./sub_categories.css
+*= require_self
+*= require_tree .
+*/
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "categories.css";
